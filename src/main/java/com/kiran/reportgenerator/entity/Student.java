@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name="student")
 public class Student {
@@ -21,16 +24,19 @@ public class Student {
 	private String studentName;
 	@Column
 	private Integer studentStandard;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
+	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="studentId_FT")
 	private FirstTerm firstTerm;
 	
 	@OneToOne(cascade = CascadeType.ALL)
+	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="studentId_ST")
 	private SecondTerm secondTerm;
 	
 	@OneToOne(cascade = CascadeType.ALL)
+	@Fetch(FetchMode.JOIN)
 	@JoinColumn(name="studentId_Final")
 	private FinalTerm finalTerm;
 

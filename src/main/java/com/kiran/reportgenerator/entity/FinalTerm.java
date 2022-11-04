@@ -22,7 +22,7 @@ public class FinalTerm {
 	private Integer englishMarks;
 	
 	@Column
-	private Integer mathsMarks;
+	private Integer marathiMarks;
 	
 	
 	public Integer getHindiMarks() {
@@ -31,8 +31,8 @@ public class FinalTerm {
 	public Integer getEnglishMarks() {
 		return englishMarks;
 	}
-	public Integer getMathsMarks() {
-		return mathsMarks;
+	public Integer getMarathiMarks() {
+		return marathiMarks;
 	}
 	public void setHindiMarks(Integer hindiMarks) {
 		this.hindiMarks = hindiMarks;
@@ -40,7 +40,7 @@ public class FinalTerm {
 	public void setEnglishMarks(Integer englishMarks) {
 		this.englishMarks = englishMarks;
 	}
-	public void setMathsMarks(Integer mathsMarks) {
-		this.mathsMarks = mathsMarks;
+	public void setMarathiMarks(Integer marathiMarks) {
+		this.marathiMarks = marathiMarks;
 	}
 }

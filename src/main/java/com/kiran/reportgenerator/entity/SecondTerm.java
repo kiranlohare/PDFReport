@@ -22,7 +22,7 @@ public class SecondTerm {
 	private Integer englishMarks;
 	
 	@Column
-	private Integer mathsMarks;
+	private Integer marathiMarks;
 	
 	
 	public Integer getHindiMarks() {
@@ -31,16 +31,18 @@ public class SecondTerm {
 	public Integer getEnglishMarks() {
 		return englishMarks;
 	}
-	public Integer getMathsMarks() {
-		return mathsMarks;
-	}
+	
 	public void setHindiMarks(Integer hindiMarks) {
 		this.hindiMarks = hindiMarks;
 	}
 	public void setEnglishMarks(Integer englishMarks) {
 		this.englishMarks = englishMarks;
 	}
-	public void setMathsMarks(Integer mathsMarks) {
-		this.mathsMarks = mathsMarks;
+	public Integer getMarathiMarks() {
+		return marathiMarks;
 	}
+	public void setMarathiMarks(Integer marathiMarks) {
+		this.marathiMarks = marathiMarks;
+	}
+	
 }
