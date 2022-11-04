@@ -7,8 +7,6 @@ import javax.annotation.PostConstruct;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
@@ -22,8 +20,6 @@ import com.kiran.reportgenerator.entity.FirstTerm;
 import com.kiran.reportgenerator.entity.SecondTerm;
 import com.kiran.reportgenerator.entity.Student;
 import com.kiran.reportgenerator.repository.StudentRepository;
-import com.kiran.reportgenerator.service.StudentService;
-
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -35,13 +31,7 @@ import io.restassured.specification.RequestSpecification;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class StudentControllerTest {
 
-	private static final Logger log= LoggerFactory.getLogger(StudentControllerTest.class);
-	
-	@Autowired
-	private StudentService service;
-	
-	@Autowired
-	private StudentController controller;
+	//private static final Logger log= LoggerFactory.getLogger(StudentControllerTest.class);
 	
 	@Autowired
 	private StudentRepository repository;
