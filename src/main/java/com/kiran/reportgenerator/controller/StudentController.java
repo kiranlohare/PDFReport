@@ -1,8 +1,6 @@
 package com.kiran.reportgenerator.controller;
 
 import java.util.InputMismatchException;
-import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,7 +65,7 @@ public class StudentController {
 //			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
 //		}
 //	}
-//	
+	
 
 	@PostMapping("/addstd")
 	public ResponseEntity<String> addStudent(@RequestBody Student student) {
@@ -111,5 +109,12 @@ public class StudentController {
 			log.info ("Input was missmatch required integer value");
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		}
+	}
+	@Autowired
+	StudentRepository repository;
+	@GetMapping("/getstudent/{id}")
+	public Student getStudent(@PathVariable Integer id)
+	{
+		return repository.findById(id).orElse(null);
 	}
 }

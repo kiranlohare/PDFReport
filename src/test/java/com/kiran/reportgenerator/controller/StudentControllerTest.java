@@ -122,10 +122,46 @@ public class StudentControllerTest {
 		repository.save(student);
 		
 		//When
-		final ValidatableResponse response = RestAssured.given(requestSpecification).basePath("/addstd")
+		final ValidatableResponse response = RestAssured.given(requestSpecification)
+				.basePath("/std/{id}").pathParam("id", student.getStudentId())
 				.when().get().then();
 		
 		//then
 		assertEquals(HttpStatus.OK.value(), response.extract().statusCode());
-	}	
+	}
+	@Test
+	public void testDeleteStudent()
+	{
+		//Given
+		Student student=new Student();
+		
+		student.setStudentName("Kiran");
+		student.setStudentStandard(12);
+		FirstTerm one=new FirstTerm();
+		SecondTerm two = new SecondTerm();
+		FinalTerm finalTerm = new FinalTerm();
+		
+		student.setFinalTerm(finalTerm);
+		student.setSecondTerm(two);
+		student.setFirstTerm(one);
+		
+		student.getFinalTerm().setMarathiMarks(55);
+		student.getSecondTerm().setMarathiMarks(70);
+		student.getFinalTerm().setMarathiMarks(75);
+		student.getFirstTerm().setHindiMarks(70);
+		student.getSecondTerm().setHindiMarks(60);
+		student.getFinalTerm().setHindiMarks(55);
+		student.getFirstTerm().setEnglishMarks(60);
+		student.getSecondTerm().setEnglishMarks(55);
+		student.getFinalTerm().setEnglishMarks(52);
+		
+		repository.save(student);
+		
+		//When
+		final ValidatableResponse response = RestAssured.given(requestSpecification).basePath("delstd/{id}")
+				.pathParam("id", student.getStudentId()).when().delete().then();
+		
+		//then
+		assertEquals(HttpStatus.OK.value(), response.extract().statusCode());
+	}
 }
